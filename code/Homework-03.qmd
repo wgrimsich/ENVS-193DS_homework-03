@@ -1,0 +1,25 @@
+---
+title: "ENVS 193DS — Homework 3"
+author: "Will Grimsich"
+format: pdf
+date: 5-27-2026
+execute:
+  warning: FALSE
+  message: FALSE
+---
+# Set Up
+```{r Reading in data and packages}
+library(tidyverse)
+library(janitor)
+library(here)
+library(readxl)
+
+kelp <- read.csv(here("data","temp-kelp.csv"))
+```
+
+
+
+
+
+
+
