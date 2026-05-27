@@ -53,7 +53,7 @@ ggplot(
 
 ### c. Checking Assumptions and Running Test
 
-```{r}
+```{r checking assumptions and running pearson correlation}
 # creating temperature qq plot using base layer ggplot
 qq_temp <- ggplot(
   # using kelp data
@@ -117,11 +117,29 @@ histogram_kelp <- ggplot(
 
 # displaying 10 random rows from data
 slice_sample(kelp, n = 10)
+
+# performing a pearson correlation test between ocean temperature and kelp growth rate
+cor.test(kelp$temp_c, kelp$kelp_elong,
+         method = "pearson")
 ```
 
+I checked the following assumptions necessary for a pearson correlation:
+
+1. Continuity
+2. Normal distribution
+3. Linear Relationship
+4. Independent Observations
+
+I checked these assumptions using the following methods:
+
+1. I displayed 10 random rows and checked for decimal measurements. I also thought critically about what kind of data I'm using; Both temperature and growth rates are infinitely divisible.
+2. I visually assessed the normality of the distribution of both variables using QQ plots and histograms.
+3. I visually assessed linearity between both variables using a scatterplot.
+4. I read through the metadata where it explicitly states "individuals".
+
+Through these methods I assessed the data to be both continuous and relatively normally distributed. While the temperature data are heavy-tailed, it is still unimodal and the majority of QQ points fall along the reference line. A negative, linear relationship was also relatively clear using a scatterplot. I am trusting that the observations are independent of eachother since I am told each individual is tracked, and no repeated observations are mentioned.
+
 ### d. Communicating Results
-
-
 
 ### e. Test Implications
 
