@@ -15,11 +15,49 @@ library(here)
 library(readxl)
 
 kelp <- read.csv(here("data","temp-kelp.csv"))
+exercise <- read.csv(here("data","exercise.csv"))
 ```
 
+# Problems
 
+## Problem 1. Giant Kelp Fronds
 
+### a. Choosing an Appropriate Test
 
+### b. Creating a Visualization
 
+### c. Checking Assumptions and Running Test
 
+### d. Communicating Results
 
+### e. Test Implications
+
+###f. Double Checking Work
+
+## Problem 2. Personal Data
+
+### a. Updating Visualizations
+
+### b. Creating Captions
+
+## Problem 3. Affective Visualization
+
+### a. Describing Affective Visualization for Personal Data
+
+### b. Creating Paper Sketch of Idea
+
+### c. Drafting a Visualization
+
+### d. Writing an Artist Statement
+
+### e. Prepping materials to share in class
+
+## Problem 4. Statistical Critique
+
+### a. Revisiting and Summarizing
+
+### b. Visual Clarity
+
+### c. Aesthetic Clarity
+
+### d. Recommendations
