@@ -10,14 +10,19 @@ execute:
   message: FALSE
 ---
 # Set Up
-```{r Reading in data and packages}
+```{r reading in data and packages}
+# reading in relevant packages
 library(tidyverse)
 library(janitor)
 library(here)
 library(readxl)
 
+# storing kelp/temp data in object 'kelp'
 kelp <- read.csv(here("data","temp-kelp.csv"))
+# storing personal data in object 'exercise'
 exercise <- read.csv(here("data","exercise.csv"))
+# setting global theme for plots as theme_bw
+theme_set(theme_bw())
 ```
 
 # Problems
@@ -26,7 +31,17 @@ exercise <- read.csv(here("data","exercise.csv"))
 
 ### a. Choosing an Appropriate Test
 
+The appropriate test to determine the strength of the relationship between temperature and giant kelp frond elongation rate is a Pearson Correlation test. This test is appropriate because both variables of interest represent continuous, numerical data that fit into this parametric test.
+
 ### b. Creating a Visualization
+
+```{r kelp data exploration}
+ggplot(data = kelp,
+       mapping = aes(x = temp_c,
+                     y = kelp_elong)) +
+  geom_point()
+```
+
 
 ### c. Checking Assumptions and Running Test
 
