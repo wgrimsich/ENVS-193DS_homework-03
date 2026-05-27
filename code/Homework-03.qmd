@@ -3,6 +3,8 @@ title: "ENVS 193DS — Homework 3"
 author: "Will Grimsich"
 format: pdf
 date: 5-27-2026
+toc: TRUE
+toc_depth: 2
 execute:
   warning: FALSE
   message: FALSE
