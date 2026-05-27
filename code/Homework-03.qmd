@@ -16,6 +16,7 @@ library(tidyverse)
 library(janitor)
 library(here)
 library(readxl)
+library(patchwork)
 
 # storing kelp/temp data in object 'kelp'
 kelp <- read.csv(here("data","temp-kelp.csv"))
@@ -36,20 +37,99 @@ The appropriate test to determine the strength of the relationship between tempe
 ### b. Creating a Visualization
 
 ```{r kelp data exploration}
-ggplot(data = kelp,
-       mapping = aes(x = temp_c,
-                     y = kelp_elong)) +
-  geom_point()
+# base layer ggplot
+ggplot(
+  # using kelp data
+  data = kelp,
+  # setting axes
+  mapping = aes(x = temp_c,
+                y = kelp_elong)) +
+  # representing individual observations as points
+  geom_point(color = 'forestgreen') + 
+  # relabelling axes
+  labs(x = "Ambient Ocean Temperature (ºC)",
+       y = "Kelp Growth Rate (cm/day)")
 ```
-
 
 ### c. Checking Assumptions and Running Test
 
+```{r}
+# creating temperature qq plot using base layer ggplot
+qq_temp <- ggplot(
+  # using kelp data
+  data = kelp,
+  # setting sample to temperature
+  mapping = aes(sample = temp_c)) +
+  # adding QQ line
+  geom_qq_line() +
+  # adding qq points and coloring blue
+  geom_qq(col = 'blue') +
+  # removing axis labels and adding title
+  labs(x = "",
+       y = "",
+       title = "Ocean Temperature")
+
+# creating kelp qq plot using base layer ggplot
+qq_kelp <- ggplot(
+  # using kelp data
+  data = kelp,
+  # setting sample to temperature
+  mapping = aes(sample = kelp_elong)) +
+  # adding QQ line
+  geom_qq_line() +
+  # adding qq points and coloring blue
+  geom_qq(col = 'forestgreen') +
+  # removing axis labels and adding title
+  labs(x = "",
+       y = "",
+       title = "Kelp Growth Rate")
+
+# creating temperature histogram using base layer ggplot
+histogram_temp <- ggplot(
+  # using data from object 'kelp'
+  data = kelp,
+  # setting axis as temperature
+  mapping = aes(x = temp_c)) +
+  # creating blue histogram and using rice rule for bin number
+  geom_histogram(fill = 'blue',
+                 bins = 6) +
+  # removing axis labels and adding title
+  labs(x = "",
+       y = "",
+       title = "Ocean Temperature")
+
+# creating kelp histogram using base layer ggplot
+histogram_kelp <- ggplot(
+  # using data from object 'kelp'
+  data = kelp,
+  # setting axis as kelp elongation rate
+  mapping = aes(x = kelp_elong)) +
+   # creating green histogram and using rice rule for bin number
+  geom_histogram(fill = 'forestgreen',
+                 bins = 6) +
+  # removing axis labels and adding title
+  labs(x = "",
+       y = "",
+       title = "Kelp Growth Rate")
+
+# displaying above plots in 2x2 grid using patchwork package
+(qq_temp + qq_kelp)/ (histogram_temp + (histogram_kelp))
+
+# displaying 10 random rows from data
+slice_sample(kelp, n = 10)
+```
+
 ### d. Communicating Results
+
+
 
 ### e. Test Implications
 
+
+
 ###f. Double Checking Work
+
+
 
 ## Problem 2. Personal Data
 
