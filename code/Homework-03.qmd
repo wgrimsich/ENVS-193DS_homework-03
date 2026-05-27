@@ -119,7 +119,7 @@ histogram_kelp <- ggplot(
 slice_sample(kelp, n = 10)
 
 # performing a pearson correlation test between ocean temperature and kelp growth rate
-cor.test(kelp$temp_c, kelp$kelp_elong,
+cor.test(kelp$kelp_elong, kelp$temp_c,
          method = "pearson")
 ```
 
@@ -140,6 +140,10 @@ I checked these assumptions using the following methods:
 Through these methods I assessed the data to be both continuous and relatively normally distributed. While the temperature data are heavy-tailed, it is still unimodal and the majority of QQ points fall along the reference line. A negative, linear relationship was also relatively clear using a scatterplot. I am trusting that the observations are independent of eachother since I am told each individual is tracked, and no repeated observations are mentioned.
 
 ### d. Communicating Results
+
+To evaluate the strength of the relationship between ocean temperature and giant kelp frond growth rate, I utilized a pearson's product-moment correlation test.
+
+We found a moderate, negative relationship between ocean temperature and giant kelp frond growth rate (Pearson's r = -0.688, t(30) = -5.2, p < 0.001, $\alpha$ = 0.05). Therefore, we reject the null hypothesis that there is no relationship between ocean temperature and kelp growth rates.
 
 ### e. Test Implications
 
