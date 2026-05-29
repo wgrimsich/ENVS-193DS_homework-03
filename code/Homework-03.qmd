@@ -9,7 +9,9 @@ execute:
   warning: FALSE
   message: FALSE
 ---
+
 # Set Up
+
 ```{r reading in data and packages}
 # reading in relevant packages
 library(tidyverse)
@@ -34,7 +36,7 @@ theme_set(theme_bw())
 
 ### a. Choosing an Appropriate Test
 
-The appropriate test to determine the _strength of the relationship_ between temperature and giant kelp frond elongation rate is a Pearson Correlation test. This test is appropriate because both variables of interest represent continuous, numerical data that fit into this parametric test.
+The appropriate test to determine the *strength of the relationship* between temperature and giant kelp frond elongation rate is a Pearson Correlation test. This test is appropriate because both variables of interest represent continuous, numerical data that fit into this parametric test.
 
 ### b. Creating a Visualization
 
@@ -130,17 +132,17 @@ cor.test(
 
 I checked the following assumptions necessary for a pearson correlation:
 
-1. Continuity
-2. Normal distribution
-3. Linear Relationship
-4. Independent Observations
+1.  Continuity
+2.  Normal distribution
+3.  Linear Relationship
+4.  Independent Observations
 
 I checked these assumptions using the following methods:
 
-1. I displayed 10 random rows and checked for decimal measurements. I also thought critically about what kind of data I'm using; Both temperature and growth rates are infinitely divisible.
-2. I visually assessed the normality of the distribution of both variables using QQ plots and histograms.
-3. I visually assessed linearity between both variables using a scatterplot.
-4. I carefully read through the metadata where it explicitly states "giant kelp _individuals_".
+1.  I displayed 10 random rows and checked for decimal measurements. I also thought critically about what kind of data I'm using; Both temperature and growth rates are infinitely divisible.
+2.  I visually assessed the normality of the distribution of both variables using QQ plots and histograms.
+3.  I visually assessed linearity between both variables using a scatterplot.
+4.  I carefully read through the metadata where it explicitly states "giant kelp *individuals*".
 
 Through these methods I assessed the data to be both continuous and relatively normally distributed. While the temperature data are heavy-tailed, it is still unimodal and the majority of QQ points fall along the reference line. A negative, linear relationship between both variables was evident using a scatterplot. I am trusting that the observations are independent of eachother since I am told each individual is tracked, and no repeated observations are mentioned.
 
@@ -148,7 +150,7 @@ Through these methods I assessed the data to be both continuous and relatively n
 
 To evaluate the strength of the relationship between ocean temperature and giant kelp frond growth rate, I utilized a pearson's product-moment correlation test.
 
-We found a moderate, negative relationship between ocean temperature and giant kelp frond growth rate (Pearson's r = -0.688, t(30) = -5.2, p < 0.001, $\alpha$ = 0.05). Therefore, we reject the null hypothesis that there is no relationship between ocean temperature and kelp growth rates.
+We found a moderate, negative relationship between ocean temperature and giant kelp frond growth rate (Pearson's r = -0.688, t(30) = -5.2, p \< 0.001, $\alpha$ = 0.05). Therefore, we reject the null hypothesis that there is no relationship between ocean temperature and kelp growth rates.
 
 ### e. Test Implications
 
@@ -172,6 +174,7 @@ Both Spearman and Pearson correlation tests would lead me to reject the null hyp
 ### a. Updating Visualizations
 
 ```{r exercise vs screen time scatterplot}
+# base layer ggplot
 ggplot(
   # using exercise dataframe
   data = exercise,
@@ -185,23 +188,20 @@ ggplot(
   geom_point(color = 'navyblue',
              # increasing size for aesthetics
              size = 2,
+             # changing shape for visual clarity
              shape = 21) + 
-  # labelling axes
-  labs(x = "Time Spent Exercising", 
+  # labelling axes, adding titles
+  labs(x = "Time Spent Exercising (minutes)", 
        y = "Screen Time (minutes)",
+       title = "Exercise vs Screen Time",
        subtitle = "Most Recent Observation: 5-26-2026") +
-  # using a non-default theme
-  theme_bw() + 
-  # removing legend
-  theme(legend.position = "none") 
-
-cor.test(exercise$exercise_time, exercise$screen_time,
-         method = "pearson")
+  # removing legend and gridlines
+  theme(legend.position = "none",
+        panel.grid = element_blank()) 
 ```
 
-
-
 ```{r}
+# base layer ggplot
 ggplot(
   # using exercise dataframe
   data = exercise, 
@@ -223,30 +223,59 @@ ggplot(
     # setting point type to a filled circle border
     shape = 21, 
   ) + 
-  # manually assigning colors to categories
+  # manually assigning colors to categories, including NA
   scale_color_manual(
-    values = c("Gym" = "red", "Gym + Run" = 'purple', "Run" = 'blue')
+    values = c("Gym" = "red",
+               "Gym + Run" = 'purple',
+               "Run" = 'blue'),
+    na.value = 'darkgreen'
   ) + 
-  # removing legend
-  theme(legend.position = "none") + 
-  # labelling axes
+  # removing legend and gridlines
+  theme(legend.position = "none",
+        panel.grid = element_blank()) + 
+  # labelling axes, adding titles
   labs(x = "Exercise Type",
        y = "Screen Time (minutes)",
-       subtitle = "Most Recent Observation: 5-26-2026")
+       title = "Screen Time by Exercise Type",
+       subtitle = "Most Recent Observation: 5-26-2026") +
+  # adding mean and 95% confidence interval point range
+  stat_summary(geom = "pointrange",
+               fun.data = "mean_se",
+               # dodging jitterplot
+               position = position_nudge(x = 0.25),
+               # coloring black for visual clarity
+               color = 'black')
 ```
 
-
 ### b. Creating Captions
+
+**Fig. 1** Daily screen time displays a random relationship to time spent exercising. Blue circles represent individual observations of screen time as they relate to time spent exercising.
+
+**Fig. 2** Daily screen time varies by type of exercise that day. Circles represent individual observations of screen time, categorized by the type of exercise that day. Black points represent average screen time values for that category. Black lines represent 95% confidence intervals pertaining to averages.
 
 ## Problem 3. Affective Visualization
 
 ### a. Describing Affective Visualization for Personal Data
 
+One idea for an affective visualization I have for my data is to order the outputs in a way that displays the contrast in screen time between days where I do exercise and days where I don't get exercise. This could be done by layering horizontal lines representing average screen time, grouping exercise days together and leaving the non-exercise data as an outlying group. Furthermore, to represent the clutter and randomness of my data, I could incorporate a creative element such as unrealistic midpoints of the lines along the graph.
+
 ### b. Creating Paper Sketch of Idea
+
+![Sketch](Exercise_Type.pdf){width="50%" out-width="50%" fig-align="center" angle=90}
 
 ### c. Drafting a Visualization
 
+![Rough Draft](Artist_Draft.pdf)
+
 ### d. Writing an Artist Statement
+
+- I am displaying the differences in my average screen time observed as they relate to different forms of exercise. 
+
+- I took influence from the Environmental Graphiti gallery, which displayed street-style art with meaningful data behind the scenes, still visually depicted.
+
+- My work will either be a digital drawing or perhaps a watercolor/ painting.
+
+- My rough draft was created in goodnotes where I drew out my sketch onto a digital medium, added some color and then exported as a PDF
 
 ### e. Prepping materials to share in class
 
