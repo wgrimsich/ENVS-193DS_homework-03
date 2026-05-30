@@ -8,6 +8,7 @@ toc_depth: 2
 execute:
   warning: FALSE
   message: FALSE
+  echo: TRUE
 ---
 
 # Set Up
@@ -37,7 +38,7 @@ theme_set(theme_bw())
 
 ### a. Choosing an Appropriate Test
 
-The appropriate test to determine the *strength of the relationship* between temperature and giant kelp frond elongation rate is a Pearson Correlation test. This test is appropriate because both variables of interest represent continuous, numerical data that fit into this parametric test.
+In order to determine the *strength of the relationship* between ocean temperature and the frond elongation rate of giant kelp _(Macrocystis pyrifera)_ we can perform either a Pearson's Product-Moment Correlation test or a Spearman's Rank Correlation test. A Pearson test evaluates the strength and direction of the linear relationship betweent two continuous, parametric variables. A Spearman's test will evaluate this relationship using ranked data, which does not have to be parametric. The Pearson test is appropriate in this case because both variables of interest (Ocean Temperature [ºC] & Frond Elongation Rate [cm/day]) represent continuous, numerical data that fit into this parametric test.
 
 ### b. Creating a Visualization
 
@@ -56,7 +57,7 @@ ggplot(
        y = "Kelp Growth Rate (cm/day)")
 ```
 
-### c. Checking Assumptions and Running Test
+### c. Checking Assumptions and Running Tests
 
 ```{r checking assumptions and running pearson correlation}
 # creating temperature qq plot using base layer ggplot
@@ -125,7 +126,7 @@ slice_sample(kelp, n = 10)
 
 # performing a correlation test between kelp growth rate and ocean temperature
 cor.test(
-  # formula: variable, variable
+  # formula: response, predictor
   kelp$kelp_elong, kelp$temp_c,
   # specifying pearson's correlation
   method = "pearson")
@@ -151,13 +152,13 @@ Through these methods I assessed the data to be both continuous and relatively n
 
 To evaluate the strength of the relationship between ocean temperature and giant kelp frond growth rate, I utilized a pearson's product-moment correlation test.
 
-We found a moderate, negative relationship between ocean temperature and giant kelp frond growth rate (Pearson's r = -0.688, t(30) = -5.2, p \< 0.001, $\alpha$ = 0.05). Therefore, we reject the null hypothesis that there is no relationship between ocean temperature and kelp growth rates.
+We found a moderate, negative relationship between ocean temperature and giant kelp frond growth rate (Pearson's $r = -0.688, t(30) = -5.2, p < 0.001, \alpha = 0.05$). Therefore, we reject the null hypothesis that there is no relationship between ocean temperature and kelp growth rates.
 
 ### e. Test Implications
 
 Through a Pearson's correlation test, I found there to be a moderately strong correlation between ocean temperature and giant kelp frond growth rates. Growth rates displayed a negative linear relationship with ocean temperature, with kelp thriving in temperatures below 16ºC. The lower boundary of my test was 14ºC, therefore further research in colder environments may be warranted.
 
-###f. Double Checking Work
+### f. Double Checking Work
 
 ```{r spearman correlation}
 # performing a correlation test between kelp growth rate and ocean temperature
@@ -250,9 +251,9 @@ ggplot(
 
 ### b. Creating Captions
 
-**Fig. 1** Daily screen time displays a random relationship to time spent exercising. Blue circles represent individual observations of screen time as they relate to time spent exercising.
+**Fig. 1** Daily screen time displays a random relationship with time spent exercising. Blue circles represent individual observations of screen time as they relate to time spent exercising. Days with no cardiovascular exercise or resistance training result in a time spent exercising value of zero minutes.
 
-**Fig. 2** Daily screen time varies by type of exercise that day. Circles represent individual observations of screen time, categorized by the type of exercise that day. Black points represent average screen time values for that category. Black lines represent 95% confidence intervals pertaining to averages.
+**Fig. 2** Daily screen time varies by type of exercise. Green circles represent individual observations of screen time on days with no exercise. Red circles represent individual observations of screen time on days with resistance training only. Purple circles represent individual observations of screen time on days with both cardiovascular exercise and resistance training. Blue circles represent individual observations of screen time on days with cardiovascular exercise only Black points represent average screen time values for that category. Black lines represent 95% confidence intervals pertaining to averages.
 
 ## Problem 3. Affective Visualization
 
@@ -262,11 +263,11 @@ One idea for an affective visualization I have for my data is to order the outpu
 
 ### b. Creating Paper Sketch of Idea
 
-![Sketch](Exercise_Type.pdf){width="50%" out-width="50%" fig-align="center" angle="90"}
+![Sketch](Exercise_Type.pdf){width="90%" out-width="90%" fig-align="center" angle="90"}
 
 ### c. Drafting a Visualization
 
-![Rough Draft](Exercise_Draft.pdf)
+![Rough Draft](Exercise_Draft.pdf){width="90%" out-width="90%" fig-align="center"}
 
 ### d. Writing an Artist Statement
 
@@ -280,7 +281,7 @@ One idea for an affective visualization I have for my data is to order the outpu
 
 ### e. Prepping materials to share in class
 
-[Link](https://docs.google.com/presentation/d/11-iDbN5yY4rNqEIdqS34uUQAD6B1dgElv4Noqz4Cn5I/edit?usp=sharing) to slide presentation.
+[Link to slide presentation.](https://docs.google.com/presentation/d/11-iDbN5yY4rNqEIdqS34uUQAD6B1dgElv4Noqz4Cn5I/edit?usp=sharing)
 
 ## Problem 4. Statistical Critique
 
@@ -288,7 +289,7 @@ One idea for an affective visualization I have for my data is to order the outpu
 
 Student's t-test Multiple t-tests were performed but here is one relevant one: Response variable: Water turbidity measured in NTU. Predictor variable: UV & Aeration Treatment (Before & After, Dry Season)
 
-![](http://127.0.0.1:19994/file_show?path=~%2FDocuments%2FENVS%E2%80%93193DS%2FRprojects%2FHomework-02%2Fimages%2Fclipboard-2870949379.png&id=12)
+![](figure-7.jpeg){fig-align="center"}
 
 ### b. Visual Clarity
 
@@ -300,7 +301,7 @@ I think the authors did a proficient job with handling visual clutter, resulting
 
 ### d. Recommendations
 
-I think their is clear paths for improvement within the visual display of this figure.
+I think there are several clear paths for improvement within the visual display of this figure.
 
 - Change the "X" symbol to a more efficient, or smaller shape such as an upside down triangle for example.
 
