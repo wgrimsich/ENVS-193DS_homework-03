@@ -261,15 +261,15 @@ One idea for an affective visualization I have for my data is to order the outpu
 
 ### b. Creating Paper Sketch of Idea
 
-![Sketch](Exercise_Type.pdf){width="50%" out-width="50%" fig-align="center" angle=90}
+![Sketch](Exercise_Type.pdf){width="50%" out-width="50%" fig-align="center" angle="90"}
 
 ### c. Drafting a Visualization
 
-![Rough Draft](Artist_Draft.pdf)
+![Rough Draft](Exercise_Draft.pdf)
 
 ### d. Writing an Artist Statement
 
-- I am displaying the differences in my average screen time observed as they relate to different forms of exercise. 
+- I am displaying the differences in my average screen time observed as they relate to different forms of exercise.
 
 - I took influence from the Environmental Graphiti gallery, which displayed street-style art with meaningful data behind the scenes, still visually depicted.
 
@@ -279,12 +279,21 @@ One idea for an affective visualization I have for my data is to order the outpu
 
 ### e. Prepping materials to share in class
 
+[Link](https://docs.google.com/presentation/d/11-iDbN5yY4rNqEIdqS34uUQAD6B1dgElv4Noqz4Cn5I/edit?usp=sharing) to slide presentation.
+
 ## Problem 4. Statistical Critique
 
 ### a. Revisiting and Summarizing
 
+
+
 ### b. Visual Clarity
+
+
 
 ### c. Aesthetic Clarity
 
+
+
 ### d. Recommendations
+
