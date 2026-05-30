@@ -22,3 +22,4 @@ This repository contains statistical analyses and data visualizations for UCSB's
 - "figure-7.jpeg" consists of the graph being aesthetically critiqued in Problem 4.
 
 # Rendered Output
+[Output PDF](https://github.com/wgrimsich/ENVS-193DS_homework-03/blob/main/code/Homework-03.pdf)
