@@ -14,6 +14,7 @@ execute:
 
 ```{r reading in data and packages}
 # reading in relevant packages
+
 library(tidyverse)
 library(janitor)
 library(here)
@@ -285,15 +286,24 @@ One idea for an affective visualization I have for my data is to order the outpu
 
 ### a. Revisiting and Summarizing
 
+Student's t-test Multiple t-tests were performed but here is one relevant one: Response variable: Water turbidity measured in NTU. Predictor variable: UV & Aeration Treatment (Before & After, Dry Season)
 
+![](http://127.0.0.1:19994/file_show?path=~%2FDocuments%2FENVS%E2%80%93193DS%2FRprojects%2FHomework-02%2Fimages%2Fclipboard-2870949379.png&id=12)
 
 ### b. Visual Clarity
 
-
+The figure lacks specification of what the "X" symbols represent, these are likely mean values, however there is no legend or reference in the caption providing a clear explanation. The authors only present the data in a boxplot, without any underlying data. I find the axes to be well labelled, however the grouping by UV and aeration system is only referenced in the caption.
 
 ### c. Aesthetic Clarity
 
-
+I think the authors did a proficient job with handling visual clutter, resulting a medium data:ink ratio for this figure. The utilization of boxplots conveys a lot of information without too much clutter, all gridlines were removed which cleans up the figure, and units are justifiably spaced.
 
 ### d. Recommendations
 
+I think their is clear paths for improvement within the visual display of this figure.
+
+- Change the "X" symbol to a more efficient, or smaller shape such as an upside down triangle for example.
+
+- Recolor this symbol to increase visually differentiation between this statistic and the rest of the data presented in the boxplot.
+
+- Provide information on what this symbol actually means! Either in a legend, or directly expressed within the figure caption.
