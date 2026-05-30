@@ -4,3 +4,8 @@
 .Ruserdata
 Homework-03.Rproj
 .DS_Store
+.aux
+.log
+.tex
+.toc
+_files/
