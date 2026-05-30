@@ -166,7 +166,7 @@ cor.test(
   # formula: variable, variable
   kelp$temp_c, kelp$kelp_elong,
   # specifying spearman's rank correlation test
-         method = "spearman")
+  method = "spearman")
 ```
 
 Both Spearman and Pearson correlation tests would lead me to reject the null hypothesis since both tests have p-values much less than my significance level of 0.05 (p $\approx$ 1.3e-05). Both tests also describe the relationship between ocean temperature and giant kelp frond growth rate as negative, linear and moderately influential (Pearson's r = -0.688, Spearman's $\rho$ = -0.689).
